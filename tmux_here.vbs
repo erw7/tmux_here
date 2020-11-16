@@ -99,6 +99,7 @@ If intRet = 0 Then
         Set objShell = Nothing
         WScript.Quit 2
     End If
+    strDir = Replace(strDir, "'", "\'")
     intRet = objShell.Run("zsh -c 'tmux neww -c ""`cygpath """  & strDir & """`""'", 0, True)
     If intRet <> 0 Then
         objShell.Run "zsh -c 'tmux setenv " & contSTR_INVOKING_ENV & " 0'", 0, True
